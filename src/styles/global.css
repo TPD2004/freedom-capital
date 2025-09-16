@@ -3,7 +3,7 @@
 
 /* Brand */
 :root{
-  --blue-950:#071a2c; /* navbar */
+  --blue-950:#071a2c; /* old dark navbar (not used now) */
   --blue-900:#0A2540; /* hero */
   --accent:#0A2540;
 }
@@ -15,14 +15,16 @@ body{@apply bg-white text-slate-800 antialiased}
 .container{@apply mx-auto max-w-6xl px-4}
 .section{@apply py-20}
 
-/* Buttons (nav login only) */
-.btn{@apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium}
-.btn{background:var(--accent); color:#fff}
+/* Buttons */
+.btn{
+  @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium shadow-sm;
+  background: var(--accent);
+  color: #fff;
+}
 .btn:hover{filter:brightness(1.08)}
 
 /* Cards */
 .card{@apply rounded-2xl border border-slate-200 bg-white shadow-sm p-8}
-/* Elevated box for login */
 .elevated{@apply rounded-2xl border border-slate-200 bg-white shadow-xl p-10}
 
 /* Very gentle dark-blue -> white fade */
