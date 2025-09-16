@@ -1,11 +1,37 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+const title = "Freedom Capital — Welcome";
+const description = "25 years of modern, transparent financing.";
 ---
+<Layout {title} {description}>
+  <!-- HERO: centered only headline + subtext -->
+  <section class="min-h-[85vh] flex items-center justify-center" style="background: var(--blue-900);">
+    <div class="container text-center">
+      <h1 class="text-white text-5xl md:text-7xl font-semibold tracking-tight">
+        Welcome to Freedom Capital
+      </h1>
+      <p class="mt-4 text-slate-200 text-lg md:text-xl">
+        Proudly serving clients for <strong>25 years</strong>
+      </p>
+    </div>
+  </section>
 
-<Layout>
-	<Welcome />
+  <!-- Very gentle fade -->
+  <section class="h-64 grad-soft"></section>
+
+  <!-- LOGIN: centered, simple, raised box -->
+  <section id="login" class="section bg-white">
+    <div class="container">
+      <div class="max-w-xl mx-auto elevated text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900">Client Portal</h2>
+        <p class="mt-4 text-slate-600">
+          Access your account and documents securely.
+        </p>
+        <a href="https://www.google.com/" class="btn mt-6">Continue to Login</a>
+        <p class="mt-3 text-xs text-slate-500">
+          You’ll be redirected to our third-party secure login.
+        </p>
+      </div>
+    </div>
+  </section>
 </Layout>

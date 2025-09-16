@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@reference "tailwindcss";
+
+/* Brand */
+:root{
+  --blue-950:#071a2c; /* navbar */
+  --blue-900:#0A2540; /* hero */
+  --accent:#0A2540;
+}
+
+html{scroll-behavior:smooth}
+body{@apply bg-white text-slate-800 antialiased}
+
+/* Layout helpers */
+.container{@apply mx-auto max-w-6xl px-4}
+.section{@apply py-20}
+
+/* Buttons (nav login only) */
+.btn{@apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium}
+.btn{background:var(--accent); color:#fff}
+.btn:hover{filter:brightness(1.08)}
+
+/* Cards */
+.card{@apply rounded-2xl border border-slate-200 bg-white shadow-sm p-8}
+/* Elevated box for login */
+.elevated{@apply rounded-2xl border border-slate-200 bg-white shadow-xl p-10}
+
+/* Very gentle dark-blue -> white fade */
+.grad-soft{
+  background: linear-gradient(
+    180deg,
+    var(--blue-900) 0%,
+    rgba(10,37,64,0.98) 12%,
+    rgba(10,37,64,0.90) 24%,
+    rgba(10,37,64,0.76) 36%,
+    rgba(10,37,64,0.60) 48%,
+    rgba(10,37,64,0.42) 60%,
+    rgba(10,37,64,0.26) 72%,
+    rgba(10,37,64,0.14) 84%,
+    rgba(10,37,64,0.06) 92%,
+    #ffffff 100%
+  );
+}
