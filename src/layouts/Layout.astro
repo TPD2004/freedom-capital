@@ -24,24 +24,59 @@ const {
   </head>
   <body>
     <!-- Fixed white navbar -->
-    <header class="fixed top-0 inset-x-0 z-50 border-b border-slate-200 bg-white">
-      <div class="container h-24 flex items-center justify-between">
-        <!-- Left: logo -->
-        <a href="/" class="flex items-center no-underline">
-          <img src="/brand.png" alt="Freedom Capital" class="h-20 w-auto" />
-        </a>
+<!-- Fixed white navbar -->
+<header class="fixed top-0 inset-x-0 z-50 border-b border-slate-200 bg-white">
+  <div class="container h-24 flex items-center justify-between">
+    <!-- Left: logo (unchanged) -->
+    <a href="/" class="flex items-center no-underline">
+      <img src="/brand.png" alt="Freedom Capital" class="h-20 w-auto" />
+    </a>
 
-        <!-- Right: nav links -->
-        <nav class="flex items-center gap-10">
-          <a href="/" class="text-slate-700 hover:text-slate-900 no-underline text-lg">Home</a>
-          <a href="/contact" class="text-slate-700 hover:text-slate-900 no-underline text-lg">Contact</a>
-          <a href="#login" class="btn text-lg">Client Login</a>
-        </nav>
-      </div>
-    </header>
+    <!-- Right: desktop nav (unchanged) -->
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="/" class="text-slate-700 hover:text-slate-900 no-underline text-lg">Home</a>
+      <a href="/contact" class="text-slate-700 hover:text-slate-900 no-underline text-lg">Contact</a>
+      <a href="#login" class="btn text-lg">Client Login</a>
+    </nav>
 
-    <!-- Spacer under fixed header -->
-    <div class="h-24"></div>
+    <!-- Right: mobile toggle (only shows on small screens) -->
+    <button id="nav-toggle"
+      class="md:hidden inline-flex items-center justify-center rounded-lg p-3 border border-slate-300 text-slate-700"
+      aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg id="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-5 w-5 transition-transform">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu panel -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white shadow-sm">
+    <div class="container py-4 flex flex-col gap-3">
+      <a href="/" class="text-slate-800 no-underline py-2">Home</a>
+      <a href="/contact" class="text-slate-800 no-underline py-2">Contact</a>
+      <a href="#login" class="btn w-full justify-center">Client Login</a>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer under fixed header (matches h-24) -->
+<div class="h-24"></div>
+
+<!-- Tiny JS to toggle menu (plain JS, no TS types) -->
+<script is:inline>
+  const btn  = document.getElementById('nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('nav-icon');
+
+  if (btn && menu && icon) {
+    btn.addEventListener('click', () => {
+      const isHidden = menu.classList.toggle('hidden'); // toggle and get new state
+      btn.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
+      icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  }
+</script>
+
 
     <main>
       <slot />
